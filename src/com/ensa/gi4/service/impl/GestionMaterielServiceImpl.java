@@ -2,7 +2,9 @@ package com.ensa.gi4.service.impl;
 
 import com.ensa.gi4.modele.Materiel;
 import com.ensa.gi4.service.api.GestionMaterielService;
+import org.springframework.stereotype.Component;
 
+@Component("materielService")
 public class GestionMaterielServiceImpl implements GestionMaterielService {
     // bd goes here
     @Override

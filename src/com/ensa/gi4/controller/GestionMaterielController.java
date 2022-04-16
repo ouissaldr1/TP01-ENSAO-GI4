@@ -1,15 +1,30 @@
 package com.ensa.gi4.controller;
 
 import com.ensa.gi4.service.api.GestionMaterielService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
+@Component("controllerPricipal")
 public class GestionMaterielController {
 
+    private GestionMaterielService gestionLivreService;
+
+    @Autowired
+    @Qualifier("materielService")
     private GestionMaterielService gestionMaterielService;
 
     public void listerMateriel() {
         gestionMaterielService.listerMateriel();
+    }
+
+    public GestionMaterielController() {
+    }
+
+    public GestionMaterielController(GestionMaterielService livreService) {
+        this.gestionLivreService = livreService;
     }
 
     public void afficherMenu() {
@@ -33,8 +48,4 @@ public class GestionMaterielController {
         System.exit(0);
     }
 
-    public void setGestionMaterielService(GestionMaterielService gestionMaterielService) {
-        // injection par accesseur
-        this.gestionMaterielService = gestionMaterielService;
-    }
 }
