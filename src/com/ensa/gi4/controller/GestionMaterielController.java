@@ -2,10 +2,15 @@ package com.ensa.gi4.controller;
 
 import com.ensa.gi4.service.api.GestionMaterielService;
 
+
 import java.util.Scanner;
 
-public class GestionMaterielController {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
+public class GestionMaterielController {
+    @Autowired
     private GestionMaterielService gestionMaterielService;
 
     public void listerMateriel() {
@@ -23,7 +28,8 @@ public class GestionMaterielController {
         } else if ("1".equals(next)) {
             listerMateriel();
         } else if ("2".equals(next)) {
-            // ajouter nouveau matériel
+        	gestionMaterielService.ajouterNouveauMateriel();
+        	
         } else {
             System.out.println("choix invalide");
         }
